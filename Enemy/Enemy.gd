@@ -13,10 +13,10 @@ func _ready():
 	initial_position.y= y_positions[randi() % y_positions.size()]
 	position=initial_position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	position+=direction
 	position.y=initial_position.y+ sin(position.x/20)*wobble
-	if position.x>1200:
+	if position.x>Global.VP.x +100:
 		queue_free()
 
 func _on_timer_timeout():
@@ -32,9 +32,11 @@ func _on_timer_timeout():
 func damage(d):
 	health-=d
 	if health<=0:
+		Global.update_score(500)
 		queue_free()
 	
 func _on_area_2d_body_entered(body):
-	if body.name!= "Player":
-		damage(100)
+	if body.name== "Player":
 		body.damage(100)
+		damage(100)
+		

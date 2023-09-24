@@ -13,6 +13,7 @@ uv = PackedVector2Array(44.4, 32.5, 43.3, 35, 41.7, 35, 31.4, 44.4, 29, 43.3, 29
 polygons = [PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -8, 8, 0, 0, 8, -8, 0)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

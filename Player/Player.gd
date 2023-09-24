@@ -28,14 +28,14 @@ func _physics_process(_delta):
 	velocity+=get_input()*speed
 	velocity = velocity.normalized() * clamp(velocity.length(),0,max_speed )
 	
-	position.x= wrap(position.x, 0, 1152)
-	position.y= wrap(position.y, 0, 648)
+	position.x= wrap(position.x, 0, Global.VP.x)
+	position.y= wrap(position.y, 0, Global.VP.y)
 	velocity=velocity.normalized()* clamp(velocity.length(),0,max_speed)
 	
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("shoot"):
-		var Effects = get_node_or_null("/root/Game/Effects")
+		Effects = get_node_or_null("/root/Game/Effects")
 		if Effects != null:
 			var bullet = Bullet.instantiate()
 			bullet.rotation = rotation
@@ -54,7 +54,10 @@ func damage(d):
 			explosion.global_position=global_position
 			hide()
 			await explosion.animation_finished
+			Global.update_lives(-1)
 		queue_free()
+		
+		
 
 
 
