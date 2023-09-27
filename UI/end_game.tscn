@@ -26,6 +26,23 @@ text = "Thanks for playing"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Mmenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xnwdo")
+theme_override_font_sizes/font_size = 25
+text = "Main menu
+"
+
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -34,9 +51,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -20.0
+offset_top = -64.0
 offset_right = 100.0
-offset_bottom = 20.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_xnwdo")
@@ -51,9 +68,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 41.0
+offset_top = 61.0
 offset_right = 100.0
-offset_bottom = 81.0
+offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_xnwdo")
@@ -61,5 +78,6 @@ theme_override_font_sizes/font_size = 25
 text = "Quit
 "
 
+[connection signal="pressed" from="Mmenu" to="." method="_on_mmenu_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

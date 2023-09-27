@@ -1,35 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://bepdasywdbqn7"]
+[gd_scene load_steps=11 format=3 uid="uid://ba052ssopt3g0"]
 
-[ext_resource type="PackedScene" uid="uid://cjgerofqdbc2r" path="res://Player/player.tscn" id="1_dvnkl"]
-[ext_resource type="Script" path="res://Player/Player_Container.gd" id="2_3u0nw"]
-[ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="2_b6kax"]
-[ext_resource type="PackedScene" uid="uid://choehqrrwlpm" path="res://Enemy/enemy.tscn" id="4_fpqik"]
-[ext_resource type="Script" path="res://UI/HUD.gd" id="5_i4ddl"]
-[ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="6_ylso4"]
-[ext_resource type="Script" path="res://UI/Menu.gd" id="7_8wf4k"]
+[ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="1_rhfeb"]
+[ext_resource type="Script" path="res://Player/Player_Container.gd" id="2_fce0f"]
+[ext_resource type="PackedScene" uid="uid://cjgerofqdbc2r" path="res://Player/player.tscn" id="3_ar0rp"]
+[ext_resource type="PackedScene" uid="uid://c8mikvvc5k26n" path="res://Asteroid/s_asteroid.tscn" id="3_hy2sb"]
+[ext_resource type="PackedScene" uid="uid://choehqrrwlpm" path="res://Enemy/enemy.tscn" id="4_17yi3"]
+[ext_resource type="Script" path="res://UI/HUD.gd" id="5_48vfq"]
+[ext_resource type="PackedScene" uid="uid://bwevvw6bg7ggi" path="res://Enemy/enemy_3.tscn" id="6_c7n8u"]
+[ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="6_st5ip"]
+[ext_resource type="PackedScene" uid="uid://d3ukfpwmbceww" path="res://Enemy/enemy_2.tscn" id="7_p07jr"]
+[ext_resource type="Script" path="res://UI/Menu.gd" id="7_wdqnj"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Asteroid_Container" type="Node2D" parent="."]
 
-[node name="Asteroid" parent="Asteroid_Container" instance=ExtResource("2_b6kax")]
+[node name="Asteroid" parent="Asteroid_Container" instance=ExtResource("1_rhfeb")]
 position = Vector2(100, 100)
 
-[node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource("2_b6kax")]
+[node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource("1_rhfeb")]
 position = Vector2(900, 600)
+
+[node name="SAsteroid" parent="Asteroid_Container" instance=ExtResource("3_hy2sb")]
+position = Vector2(816, 218)
 
 [node name="Effects" type="Node2D" parent="."]
 
 [node name="Player_Container" type="Node2D" parent="."]
-script = ExtResource("2_3u0nw")
+script = ExtResource("2_fce0f")
 
-[node name="Player" parent="Player_Container" instance=ExtResource("1_dvnkl")]
+[node name="Player" parent="Player_Container" instance=ExtResource("3_ar0rp")]
 position = Vector2(566, 324)
 
 [node name="Enemy_Container" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemy_Container" instance=ExtResource("4_fpqik")]
+[node name="Enemy" parent="Enemy_Container" instance=ExtResource("4_17yi3")]
 position = Vector2(400, 200)
+
+[node name="Enemy3" parent="Enemy_Container" instance=ExtResource("6_c7n8u")]
+
+[node name="Enemy2" parent="Enemy_Container" instance=ExtResource("7_p07jr")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -40,14 +50,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_i4ddl")
+script = ExtResource("5_48vfq")
 
 [node name="Score" type="Label" parent="UI/HUD"]
 layout_mode = 1
 offset_left = 10.0
 offset_right = 210.0
 offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_st5ip")
 theme_override_font_sizes/font_size = 20
 text = "Score"
 vertical_alignment = 1
@@ -61,7 +71,7 @@ offset_left = -210.0
 offset_right = -10.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_st5ip")
 theme_override_font_sizes/font_size = 20
 text = "Time:"
 horizontal_alignment = 2
@@ -87,7 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("7_8wf4k")
+script = ExtResource("7_wdqnj")
 
 [node name="ColorRect" type="ColorRect" parent="UI/Menu"]
 layout_mode = 1
@@ -106,29 +116,12 @@ anchor_bottom = 1.0
 offset_bottom = -248.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_st5ip")
 theme_override_font_sizes/font_size = 50
 text = "Pause Menu
 "
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="mmenu" type="Button" parent="UI/Menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -64.0
-offset_right = 100.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_ylso4")
-theme_override_font_sizes/font_size = 25
-text = "Main Menu"
 
 [node name="Restart" type="Button" parent="UI/Menu"]
 layout_mode = 1
@@ -138,11 +131,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
+offset_top = -20.0
 offset_right = 100.0
-offset_bottom = 40.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_st5ip")
 theme_override_font_sizes/font_size = 25
 text = "Restart Game"
 
@@ -154,16 +148,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 61.0
+offset_top = 41.0
 offset_right = 100.0
-offset_bottom = 101.0
+offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_st5ip")
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 
 [connection signal="timeout" from="UI/HUD/Timer" to="UI/HUD" method="_on_timer_timeout"]
-[connection signal="pressed" from="UI/Menu/mmenu" to="UI/Menu" method="_on_mmenu_pressed"]
 [connection signal="pressed" from="UI/Menu/Restart" to="UI/Menu" method="_on_restart_pressed"]
 [connection signal="pressed" from="UI/Menu/Quit" to="UI/Menu" method="_on_quit_pressed"]

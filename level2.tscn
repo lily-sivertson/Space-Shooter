@@ -1,35 +1,48 @@
-[gd_scene load_steps=8 format=3 uid="uid://bepdasywdbqn7"]
+[gd_scene load_steps=11 format=3 uid="uid://byj4ejr53l2do"]
 
-[ext_resource type="PackedScene" uid="uid://cjgerofqdbc2r" path="res://Player/player.tscn" id="1_dvnkl"]
-[ext_resource type="Script" path="res://Player/Player_Container.gd" id="2_3u0nw"]
-[ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="2_b6kax"]
-[ext_resource type="PackedScene" uid="uid://choehqrrwlpm" path="res://Enemy/enemy.tscn" id="4_fpqik"]
-[ext_resource type="Script" path="res://UI/HUD.gd" id="5_i4ddl"]
-[ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="6_ylso4"]
-[ext_resource type="Script" path="res://UI/Menu.gd" id="7_8wf4k"]
+[ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="1_epjm1"]
+[ext_resource type="Script" path="res://Player/Player_Container.gd" id="2_bsckd"]
+[ext_resource type="Script" path="res://Asteroid/asteroidl2.gd" id="2_g1ocv"]
+[ext_resource type="PackedScene" uid="uid://cjgerofqdbc2r" path="res://Player/player.tscn" id="3_q2biy"]
+[ext_resource type="PackedScene" uid="uid://c8mikvvc5k26n" path="res://Asteroid/s_asteroid.tscn" id="3_uh3ms"]
+[ext_resource type="PackedScene" uid="uid://choehqrrwlpm" path="res://Enemy/enemy.tscn" id="4_qr7pu"]
+[ext_resource type="Script" path="res://UI/HUD.gd" id="5_3i1wd"]
+[ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="6_gbok4"]
+[ext_resource type="Script" path="res://UI/Menu.gd" id="7_dwbdp"]
+[ext_resource type="PackedScene" uid="uid://d3ukfpwmbceww" path="res://Enemy/enemy_2.tscn" id="7_mcweg"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Asteroid_Container" type="Node2D" parent="."]
 
-[node name="Asteroid" parent="Asteroid_Container" instance=ExtResource("2_b6kax")]
-position = Vector2(100, 100)
+[node name="Asteroid" parent="Asteroid_Container" instance=ExtResource("1_epjm1")]
+position = Vector2(223, 507)
+script = ExtResource("2_g1ocv")
 
-[node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource("2_b6kax")]
-position = Vector2(900, 600)
+[node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource("1_epjm1")]
+position = Vector2(1072, 208)
+script = ExtResource("2_g1ocv")
+
+[node name="Asteroid3" parent="Asteroid_Container" instance=ExtResource("1_epjm1")]
+position = Vector2(805, 381)
+script = ExtResource("2_g1ocv")
+
+[node name="SAsteroid" parent="Asteroid_Container" instance=ExtResource("3_uh3ms")]
+position = Vector2(242, 221)
 
 [node name="Effects" type="Node2D" parent="."]
 
 [node name="Player_Container" type="Node2D" parent="."]
-script = ExtResource("2_3u0nw")
+script = ExtResource("2_bsckd")
 
-[node name="Player" parent="Player_Container" instance=ExtResource("1_dvnkl")]
+[node name="Player" parent="Player_Container" instance=ExtResource("3_q2biy")]
 position = Vector2(566, 324)
 
 [node name="Enemy_Container" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemy_Container" instance=ExtResource("4_fpqik")]
-position = Vector2(400, 200)
+[node name="Enemy" parent="Enemy_Container" instance=ExtResource("4_qr7pu")]
+
+[node name="Enemy2" parent="Enemy_Container" instance=ExtResource("7_mcweg")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -40,14 +53,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_i4ddl")
+script = ExtResource("5_3i1wd")
 
 [node name="Score" type="Label" parent="UI/HUD"]
 layout_mode = 1
 offset_left = 10.0
 offset_right = 210.0
 offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_gbok4")
 theme_override_font_sizes/font_size = 20
 text = "Score"
 vertical_alignment = 1
@@ -61,7 +74,7 @@ offset_left = -210.0
 offset_right = -10.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_gbok4")
 theme_override_font_sizes/font_size = 20
 text = "Time:"
 horizontal_alignment = 2
@@ -87,7 +100,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("7_8wf4k")
+script = ExtResource("7_dwbdp")
 
 [node name="ColorRect" type="ColorRect" parent="UI/Menu"]
 layout_mode = 1
@@ -106,7 +119,7 @@ anchor_bottom = 1.0
 offset_bottom = -248.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_gbok4")
 theme_override_font_sizes/font_size = 50
 text = "Pause Menu
 "
@@ -126,7 +139,7 @@ offset_right = 100.0
 offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_gbok4")
 theme_override_font_sizes/font_size = 25
 text = "Main Menu"
 
@@ -142,7 +155,7 @@ offset_right = 100.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_gbok4")
 theme_override_font_sizes/font_size = 25
 text = "Restart Game"
 
@@ -159,7 +172,7 @@ offset_right = 100.0
 offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_ylso4")
+theme_override_fonts/font = ExtResource("6_gbok4")
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 
