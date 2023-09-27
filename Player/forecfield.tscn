@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0yiybqix3maf"]
+
+[ext_resource type="Script" path="res://Player/forecfield.gd" id="1_pid61"]
+[ext_resource type="Texture2D" uid="uid://bfo8ig2deff0o" path="res://Assets/Player.png" id="2_1dkp5"]
+
+[node name="forecfield" type="CharacterBody2D"]
+visible = false
+script = ExtResource("1_pid61")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.305882, 0.470588, 0.694118, 1)
+visibility_layer = 384
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_1dkp5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.25, 1.25)
+polygon = PackedVector2Array(5, -25.2, 5, -22.5, 28.3, 17, 27.2, 19, 25.9, 19, 17.9, 28, 13.6, 28, -0.700001, 21.7, -19, 29, -19, 25.9, -28, 17.9, -28, 14.4, -3, -25.6, -3, -29.2)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -8,7 +8,6 @@ var nose=Vector2(0,-60)
 var Bullet= load("res://Player/bullet.tscn")
 var Effects=null
 var Explosion= load("res://Effects/explosion.tscn")
-#var forcef=false
 
 
 func get_input():
@@ -43,49 +42,9 @@ func _physics_process(_delta):
 			bullet.global_position = global_position + nose.rotated(rotation)
 			Effects.add_child(bullet)
 			
-'''func updateforcef():
-	var forcefield=
-	var timer := Timer.new()
-	add_child(timer)
-	timer.wait_time= 2.5
-	
-	timer.one_shot=true
-	timer.start()
-	await get_tree().create_timer(2.0).timeout'''
-	
 	
 	
 func damage(d):
-	'''var f=get_node_or_null("root/Game/Player/forcefield")
-	if f==null:
-		health-=d
-		if health<=0:
-			Effects=get_node_or_null("root/Game/Effects")
-			if Effects!=null:
-				var explosion= Explosion.instantiate()
-				Effects.add_child(explosion)
-				explosion.global_position=global_position
-				hide()
-				await explosion.animation_finished
-			Global.update_lives(-1)
-			queue_free()
-	else:
-		if f.visible:
-			pass
-		else:
-			health-=d
-			if health<=0:
-				Effects=get_node_or_null("root/Game/Effects")
-				if Effects!=null:
-					var explosion= Explosion.instantiate()
-					Effects.add_child(explosion)
-					explosion.global_position=global_position
-					hide()
-					await explosion.animation_finished
-				Global.update_lives(-1)
-				queue_free()
-				f.queue_free()'''
-	health-=d
 	if health<=0:
 		Effects=get_node_or_null("root/Game/Effects")
 		if Effects!=null:
@@ -97,9 +56,10 @@ func damage(d):
 		Global.update_lives(-1)
 		queue_free()
 		
+		
 
 
 
 func _on_area_2d_body_entered(body):
-	if body.name!="Player" and body.name!="forcefield":
+	if body.name!="Player":
 		damage(100)

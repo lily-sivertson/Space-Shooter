@@ -1,24 +1,25 @@
 extends CharacterBody2D
 
 var Bullet=load("res://Enemy/enemy_bullet.tscn")
-var health=15
-#var y_positions= [100,150,200,500,550]
+var health=10
+var y_positions= [100,150,200,500,550]
 var x_positions= [400,500,600,700,800]
 var initial_position= Vector2.ZERO
-var direction= Vector2(1.0,0)
+var direction= Vector2(0,0)
 var wobble =100.0
+var timeleft=15
 
 
 func _ready():
 	initial_position.x= x_positions[randi() % x_positions.size()]
-	#initial_position.y= y_positions[randi() % y_positions.size()]
-	initial_position.y=150
+	initial_position.y= y_positions[randi() % y_positions.size()]
+	#initial_position.y=150
 	position=initial_position
 
 func _physics_process(_delta):
 	position+=direction
-	position.x=initial_position.x+ sin(position.y/40)*wobble
-	print(position)
+	position.y=initial_position.y+ sin(position.x/20)*wobble
+
 
 func _on_timer_timeout():
 	var Player=get_node_or_null("/root/Game/Player_Container/Player")
@@ -41,3 +42,10 @@ func damage(d):
 		body.damage(100)
 		damage(100)'''
 		
+
+
+func _on_countdown_timeout():
+	timeleft-=1
+	if timeleft<=0:
+		queue_free()
+	

@@ -26,3 +26,7 @@ func _on_level_2_pressed():
 
 func _on_level_3_pressed():
 	Global.update_gamefile("res://level3.tscn")
+
+
+func _on_endless_pressed():
+	Global.update_gamefile("res://endless.tscn")

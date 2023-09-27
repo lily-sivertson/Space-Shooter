@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var Bullet=load("res://Enemy/enemy_bullet.tscn")
-var health=10
+var health=7
 var x_positions= [300,350,400,450,750,800,850,900]
 var initial_position= Vector2.ZERO
 var direction= Vector2(0,1)

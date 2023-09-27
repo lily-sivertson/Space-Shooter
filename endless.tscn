@@ -1,17 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxd6vgluug3g1"]
+[gd_scene load_steps=13 format=3 uid="uid://cxd6vgluug3g1"]
 
 [ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="1_6hnef"]
+[ext_resource type="Script" path="res://endless.gd" id="1_g2fa7"]
 [ext_resource type="Script" path="res://Asteroid/asteroidl2.gd" id="2_v6fyd"]
 [ext_resource type="PackedScene" uid="uid://c8mikvvc5k26n" path="res://Asteroid/s_asteroid.tscn" id="3_qg7rh"]
 [ext_resource type="Script" path="res://Player/Player_Container.gd" id="4_y3uni"]
 [ext_resource type="PackedScene" uid="uid://cjgerofqdbc2r" path="res://Player/player.tscn" id="5_wsfvl"]
 [ext_resource type="PackedScene" uid="uid://choehqrrwlpm" path="res://Enemy/enemy.tscn" id="6_68705"]
 [ext_resource type="PackedScene" uid="uid://d3ukfpwmbceww" path="res://Enemy/enemy_2.tscn" id="7_5hce7"]
+[ext_resource type="Script" path="res://Player/eplayer.gd" id="7_wvksp"]
 [ext_resource type="Script" path="res://UI/HUD.gd" id="8_ossih"]
 [ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="9_0n555"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="10_4umnr"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_g2fa7")
 
 [node name="Asteroid_Container" type="Node2D" parent="."]
 
@@ -27,9 +30,6 @@ script = ExtResource("2_v6fyd")
 position = Vector2(805, 381)
 script = ExtResource("2_v6fyd")
 
-[node name="SAsteroid" parent="Asteroid_Container" instance=ExtResource("3_qg7rh")]
-position = Vector2(242, 221)
-
 [node name="SAsteroid2" parent="Asteroid_Container" instance=ExtResource("3_qg7rh")]
 position = Vector2(769, 81)
 
@@ -40,6 +40,7 @@ script = ExtResource("4_y3uni")
 
 [node name="Player" parent="Player_Container" instance=ExtResource("5_wsfvl")]
 position = Vector2(566, 324)
+script = ExtResource("7_wvksp")
 
 [node name="Enemy_Container" type="Node2D" parent="."]
 
@@ -178,7 +179,27 @@ theme_override_fonts/font = ExtResource("9_0n555")
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 
+[node name="ATimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="ATimerhard" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Etimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Etimerhard" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="timeout" from="UI/HUD/Timer" to="UI/HUD" method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/Menu/mmenu" to="UI/Menu" method="_on_mmenu_pressed"]
 [connection signal="pressed" from="UI/Menu/Restart" to="UI/Menu" method="_on_restart_pressed"]
 [connection signal="pressed" from="UI/Menu/Quit" to="UI/Menu" method="_on_quit_pressed"]
+[connection signal="timeout" from="ATimer" to="." method="_on_a_timer_timeout"]
+[connection signal="timeout" from="ATimerhard" to="." method="_on_a_timerhard_timeout"]
+[connection signal="timeout" from="Etimer" to="." method="_on_etimer_timeout"]
+[connection signal="timeout" from="Etimerhard" to="." method="_on_etimerhard_timeout"]
