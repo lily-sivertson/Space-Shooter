@@ -101,5 +101,5 @@ func damage(d):
 
 
 func _on_area_2d_body_entered(body):
-	if body.name!="Player" and body.name!="forcefield":
+	if body.name!="Player" and body.name!="Bullet":
 		damage(100)

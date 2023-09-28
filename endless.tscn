@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxd6vgluug3g1"]
+[gd_scene load_steps=16 format=3 uid="uid://cxd6vgluug3g1"]
 
 [ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="1_6hnef"]
 [ext_resource type="Script" path="res://endless.gd" id="1_g2fa7"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="9_0n555"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="10_4umnr"]
 [ext_resource type="AudioStream" uid="uid://c5353g6wbrn3g" path="res://Assets/Battle Lava - TV Fire Witch.mp3" id="13_g32el"]
+[ext_resource type="Script" path="res://Life_Container.gd" id="15_82afc"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_g2fa7")
@@ -31,6 +32,7 @@ color = Color(0.0980392, 0.0980392, 0.152941, 0.584314)
 [node name="Asteroid_Container" type="Node2D" parent="."]
 
 [node name="Asteroid" parent="Asteroid_Container" instance=ExtResource("1_6hnef")]
+visible = false
 position = Vector2(223, 507)
 script = ExtResource("2_v6fyd")
 
@@ -212,6 +214,13 @@ stream = ExtResource("13_g32el")
 volume_db = 6.559
 autoplay = true
 
+[node name="Life_Container" type="Node2D" parent="."]
+script = ExtResource("15_82afc")
+
+[node name="Timer" type="Timer" parent="Life_Container"]
+wait_time = 7.0
+autostart = true
+
 [connection signal="timeout" from="UI/HUD/Timer" to="UI/HUD" method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/Menu/mmenu" to="UI/Menu" method="_on_mmenu_pressed"]
 [connection signal="pressed" from="UI/Menu/Restart" to="UI/Menu" method="_on_restart_pressed"]
@@ -220,3 +229,4 @@ autoplay = true
 [connection signal="timeout" from="ATimerhard" to="." method="_on_a_timerhard_timeout"]
 [connection signal="timeout" from="Etimer" to="." method="_on_etimer_timeout"]
 [connection signal="timeout" from="Etimerhard" to="." method="_on_etimerhard_timeout"]
+[connection signal="timeout" from="Life_Container/Timer" to="Life_Container" method="_on_timer_timeout"]
