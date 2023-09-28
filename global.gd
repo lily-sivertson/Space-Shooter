@@ -18,20 +18,6 @@ func _ready():
 	VP= get_viewport().size
 	var _signal = get_tree().get_root().size_changed.connect(_resize)
 	
-	
-	
-'''func _unhandled_input(event):
-	if event.is_action_pressed("menu"):
-		var Menu = get_node_or_null("/root/Game/UI/Menu")
-		if Menu == null:
-			get_tree().quit()
-		else:
-			if Menu.visible:
-				get_tree().paused = false
-				Menu.hide()
-			else:
-				get_tree().paused = true
-				Menu.show()'''
 
 func _process(_delta):
 	if Input.is_action_just_pressed("menu"):

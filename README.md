@@ -14,6 +14,17 @@ Font: "Breads" by Sixtwenty Studio
 sixtwentystudio@gmail.com
 https://www.dafont.com/breads.font
 
+Music:
+Song: TV Fire Witch
+Artist: Battle Lava
+Source: Free Music Archive (https://freemusicarchive.org/music/Battle_Lava/)
+License: (CC BY-NC)  
+
+Song: So Far the Monster Magic is Super
+Artist: Battle Lava
+Source: Free Music Archive (https://freemusicarchive.org/music/Battle_Lava/)
+License: (CC BY-NC)  
+
 ## Future Development
 None
 

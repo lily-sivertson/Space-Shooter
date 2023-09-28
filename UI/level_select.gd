@@ -17,16 +17,20 @@ func _on_play_pressed():
 
 
 func _on_level_1_pressed():
+	Global.reset()
 	Global.update_gamefile("res://game.tscn")
 
 
 func _on_level_2_pressed():
 	Global.update_gamefile("res://level2.tscn")
+	Global.reset()
 
 
 func _on_level_3_pressed():
 	Global.update_gamefile("res://level3.tscn")
+	Global.reset()
 
 
 func _on_endless_pressed():
 	Global.update_gamefile("res://endless.tscn")
+	Global.reset()

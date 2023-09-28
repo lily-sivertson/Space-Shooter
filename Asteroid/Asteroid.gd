@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var initial_speed=100
-var health=10
+var health=6
 
 
 func _ready():

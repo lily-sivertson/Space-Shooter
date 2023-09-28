@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxd6vgluug3g1"]
+[gd_scene load_steps=15 format=3 uid="uid://cxd6vgluug3g1"]
 
 [ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="1_6hnef"]
 [ext_resource type="Script" path="res://endless.gd" id="1_g2fa7"]
+[ext_resource type="Texture2D" uid="uid://bceeto1gv8b7b" path="res://Assets/bg.png" id="2_soxvn"]
 [ext_resource type="Script" path="res://Asteroid/asteroidl2.gd" id="2_v6fyd"]
 [ext_resource type="PackedScene" uid="uid://c8mikvvc5k26n" path="res://Asteroid/s_asteroid.tscn" id="3_qg7rh"]
 [ext_resource type="Script" path="res://Player/Player_Container.gd" id="4_y3uni"]
@@ -12,9 +13,20 @@
 [ext_resource type="Script" path="res://UI/HUD.gd" id="8_ossih"]
 [ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="9_0n555"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="10_4umnr"]
+[ext_resource type="AudioStream" uid="uid://c5353g6wbrn3g" path="res://Assets/Battle Lava - TV Fire Witch.mp3" id="13_g32el"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_g2fa7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_soxvn")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.0980392, 0.0980392, 0.152941, 0.584314)
 
 [node name="Asteroid_Container" type="Node2D" parent="."]
 
@@ -180,7 +192,7 @@ theme_override_font_sizes/font_size = 25
 text = "Quit"
 
 [node name="ATimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.0
 autostart = true
 
 [node name="ATimerhard" type="Timer" parent="."]
@@ -188,12 +200,17 @@ wait_time = 5.0
 autostart = true
 
 [node name="Etimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.0
 autostart = true
 
 [node name="Etimerhard" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_g32el")
+volume_db = 6.559
+autoplay = true
 
 [connection signal="timeout" from="UI/HUD/Timer" to="UI/HUD" method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/Menu/mmenu" to="UI/Menu" method="_on_mmenu_pressed"]

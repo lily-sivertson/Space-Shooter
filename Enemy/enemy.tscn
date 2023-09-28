@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://choehqrrwlpm"]
 
 [ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_rvkn7"]
-[ext_resource type="Texture2D" uid="uid://d3fxwxb45nhrg" path="res://Assets/Enemy.png" id="2_mfeht"]
+[ext_resource type="Texture2D" uid="uid://bt8vhxppmm3im" path="res://Assets/bread.png" id="2_cvihk"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_abpmo"]
-radius = 40.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjg5p"]
+size = Vector2(80, 80)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_rvkn7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_mfeht")
+texture = ExtResource("2_cvihk")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-10, -25.9, -4, -20.9, -4, -16.4, 0.700001, -20.4, 3, -19.3, 3, -18, 4, -17.2, 4, -20.8, 11.2, -28, 20.8, -28, 28, -20.8, 28, -11.2, 20.8, -4, 16.4, -4, 20.4, 0.700001, 19.3, 3, 18, 3, 17.2, 4, 20.8, 4, 28, 11.2, 28, 22, 25.9, 22, 20.9, 28, 10, 28, 10, 25.9, 4, 20.9, 4, 16.4, -0.700001, 20.4, -3, 19.3, -3, 18, -4, 17.2, -4, 20.8, -11.2, 28, -20.7, 28, -27, 23, -27, 20, -28.3, 10, -25.9, 10, -20.9, 4, -16.4, 4, -20.4, -0.700001, -19.3, -3, -18, -3, -17.2, -4, -20.8, -4, -28, -11.2, -28, -20.9, -22, -25.9, -22, -28, -10, -28)
+polygon = PackedVector2Array(21, -45.9, 21, -44.7, 37, -41.7, 37, -39.9, 43, -34.9, 43, -19.7, 41.8, -16, 44.2, 14, 42.8, 14, 40.7, 28, 38.8, 28, 32.8, 34, -28, 34, -28, 32.1, -37, 26.1, -37, 23.3, -40, 6.2, -40, -8.2, -39.3, -12.3, -44, -19.4, -44, -32, -41.9, -32, -32.9, -42, -30.1, -42, -17, -45.5, -17, -47.1)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -22,7 +22,8 @@ autostart = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_abpmo")
+position = Vector2(2, -5)
+shape = SubResource("RectangleShape2D_qjg5p")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

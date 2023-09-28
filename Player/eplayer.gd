@@ -45,6 +45,7 @@ func _physics_process(_delta):
 	
 	
 func damage(d):
+	health-=d
 	if health<=0:
 		Effects=get_node_or_null("root/Game/Effects")
 		if Effects!=null:

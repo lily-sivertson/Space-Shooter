@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtgbao54t3qgs"
+path="res://.godot/imported/Battle Lava - So Far The Monster Magic Is Super.mp3-8ecd59a0ce45ae9322cec7fe397e7776.mp3str"
+
+[deps]
+
+source_file="res://Assets/Battle Lava - So Far The Monster Magic Is Super.mp3"
+dest_files=["res://.godot/imported/Battle Lava - So Far The Monster Magic Is Super.mp3-8ecd59a0ce45ae9322cec7fe397e7776.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
