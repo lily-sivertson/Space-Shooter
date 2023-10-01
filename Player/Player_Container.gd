@@ -8,10 +8,11 @@ func _physics_process(_delta):
 		#var ffield=Forcefield.instantiate()
 		var player=Player.instantiate()
 		#ffield.position=Vector2(576,324)
-		#add_child(ffield)
+		#ffield.modulate.a=1.0
 		#ffield.show()
 		player.position=Vector2(576,324)
 		add_child(player)
+		
 		
 		
 		

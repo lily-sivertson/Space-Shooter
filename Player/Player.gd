@@ -9,6 +9,9 @@ var Bullet= load("res://Player/bullet.tscn")
 var Effects=null
 var Explosion= load("res://Effects/explosion.tscn")
 #var forcef=false
+var fade=0.005
+
+
 
 
 func get_input():
@@ -26,22 +29,28 @@ func get_input():
 
 
 func _physics_process(_delta):
-	velocity+=get_input()*speed
-	velocity = velocity.normalized() * clamp(velocity.length(),0,max_speed )
-	
-	position.x= wrap(position.x, 0, Global.VP.x)
-	position.y= wrap(position.y, 0, Global.VP.y)
-	velocity=velocity.normalized()* clamp(velocity.length(),0,max_speed)
-	
-	move_and_slide()
-	
-	if Input.is_action_just_pressed("shoot"):
-		Effects = get_node_or_null("/root/Game/Effects")
-		if Effects != null:
-			var bullet = Bullet.instantiate()
-			bullet.rotation = rotation
-			bullet.global_position = global_position + nose.rotated(rotation)
-			Effects.add_child(bullet)
+	if $AudioStreamPlayer.playing:
+		$Sprite2D.modulate.a-=.02
+	else:
+		velocity+=get_input()*speed
+		velocity = velocity.normalized() * clamp(velocity.length(),0,max_speed )
+		
+		position.x= wrap(position.x, 0, Global.VP.x)
+		position.y= wrap(position.y, 0, Global.VP.y)
+		velocity=velocity.normalized()* clamp(velocity.length(),0,max_speed)
+		
+		move_and_slide()
+		
+		if Input.is_action_just_pressed("shoot"):
+			Effects = get_node_or_null("/root/Game/Effects")
+			if Effects != null:
+				var bullet = Bullet.instantiate()
+				bullet.rotation = rotation
+				bullet.global_position = global_position + nose.rotated(rotation)
+				Effects.add_child(bullet)
+		if $Forcefield.modulate.a > 0:
+			$Forcefield.modulate.a-=fade
+				
 			
 '''func updateforcef():
 	var forcefield=
@@ -56,22 +65,11 @@ func _physics_process(_delta):
 	
 	
 func damage(d):
-	'''var f=get_node_or_null("root/Game/Player/forcefield")
-	if f==null:
-		health-=d
-		if health<=0:
-			Effects=get_node_or_null("root/Game/Effects")
-			if Effects!=null:
-				var explosion= Explosion.instantiate()
-				Effects.add_child(explosion)
-				explosion.global_position=global_position
-				hide()
-				await explosion.animation_finished
-			Global.update_lives(-1)
-			queue_free()
+	if $AudioStreamPlayer.playing:
+		pass
 	else:
-		if f.visible:
-			pass
+		if $Forcefield.modulate.a>0:
+				pass
 		else:
 			health-=d
 			if health<=0:
@@ -83,23 +81,21 @@ func damage(d):
 					hide()
 					await explosion.animation_finished
 				Global.update_lives(-1)
+				$AudioStreamPlayer.play()
+				await $AudioStreamPlayer.finished
 				queue_free()
-				f.queue_free()'''
-	health-=d
-	if health<=0:
-		Effects=get_node_or_null("root/Game/Effects")
-		if Effects!=null:
-			var explosion= Explosion.instantiate()
-			Effects.add_child(explosion)
-			explosion.global_position=global_position
-			hide()
-			await explosion.animation_finished
-		Global.update_lives(-1)
-		queue_free()
-		
-
 
 
 func _on_area_2d_body_entered(body):
-	if body.name!="Player" and body.name!="Bullet":
+	if body.name!="Player" and body.name!="Bullet" and body.name!="lifes":
 		damage(100)
+
+
+func _on_ready():
+	position=Vector2(576,324)
+	$Forcefield.modulate.a=1.0
+	$Forcefield.modulate.b=1.0
+
+
+func _on_timer_timeout():
+	pass # Replace with function body.

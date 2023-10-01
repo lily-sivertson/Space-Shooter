@@ -34,3 +34,21 @@ func _on_level_3_pressed():
 func _on_endless_pressed():
 	Global.update_gamefile("res://endless.tscn")
 	Global.reset()
+
+
+func _on_level_4_pressed():
+	Global.update_gamefile("res://level4.tscn")
+	Global.reset()
+
+func _on_practice_pressed():
+	Global.update_gamefile("res://practice.tscn")
+	Global.reset()
+
+
+func _on_level_5_pressed():
+	Global.update_gamefile("res://level5.tscn")
+	Global.reset()
+
+func _on_level_6_pressed():
+	Global.update_gamefile("res://level6.tscn")
+	Global.reset()

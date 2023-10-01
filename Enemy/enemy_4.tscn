@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://do8gwlai3c0q7"]
+
+[ext_resource type="Script" path="res://Enemy/enemy_4.gd" id="1_gutt6"]
+[ext_resource type="Texture2D" uid="uid://cyyoamt5ak7w4" path="res://Assets/croissant.png" id="2_p1tpk"]
+
+[node name="Enemy4" type="CharacterBody2D"]
+position = Vector2(234, 135)
+script = ExtResource("1_gutt6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_p1tpk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.25
+autostart = true
+
+[node name="countdown" type="Timer" parent="."]
+autostart = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.8, 0.8)
+polygon = PackedVector2Array(17, -51.2, 32, -43.2, 32, -41.8, 53, -20.8, 53, -18.4, 57, -9.4, 57, 9, 55.8, 9, 54.8, 20, 52.8, 20, 42.8, 30, 35.4, 30, 14.4, 15, 11.2, 15, -2, 16.2, -2, 14.5, -10.3, 12, -12.7, 12, -23, 13.7, -23, 15.3, -34, 20.3, -40.2, 27, -53, 27, -53, 24.7, -57, 19.7, -57, 10.3, -58.8, 5, -56.9, 5, -55.9, -9, -54.4, -9, -48.4, -24, -47, -24, -35, -39, -32.7, -39, -23.8, -47, -21.5, -47, -13, -51.2, -13, -53, 17, -53)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="countdown" to="." method="_on_countdown_timeout"]

@@ -25,5 +25,6 @@ func _ready():
 func _on_area_2d_body_entered(body):
 	if body.name=="Player":
 		Global.update_lives(1)
+		Global.update_score(50)
 		queue_free()
 		

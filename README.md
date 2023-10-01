@@ -25,6 +25,11 @@ Artist: Battle Lava
 Source: Free Music Archive (https://freemusicarchive.org/music/Battle_Lava/)
 License: (CC BY-NC)  
 
+Sound effect: Retro underwater explosion by MATRIXXX
+creative commons license
+
+
+
 ## Future Development
 None
 

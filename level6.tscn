@@ -1,27 +1,25 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxd6vgluug3g1"]
+[gd_scene load_steps=14 format=3 uid="uid://dvhptw8uvwwb"]
 
-[ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="1_6hnef"]
-[ext_resource type="Script" path="res://endless.gd" id="1_g2fa7"]
-[ext_resource type="Texture2D" uid="uid://bceeto1gv8b7b" path="res://Assets/bg.png" id="2_soxvn"]
-[ext_resource type="Script" path="res://Asteroid/asteroidl2.gd" id="2_v6fyd"]
-[ext_resource type="PackedScene" uid="uid://c8mikvvc5k26n" path="res://Asteroid/s_asteroid.tscn" id="3_qg7rh"]
-[ext_resource type="Script" path="res://Player/Player_Container.gd" id="4_y3uni"]
-[ext_resource type="PackedScene" uid="uid://cjgerofqdbc2r" path="res://Player/player.tscn" id="5_wsfvl"]
-[ext_resource type="PackedScene" uid="uid://choehqrrwlpm" path="res://Enemy/enemy.tscn" id="6_68705"]
-[ext_resource type="PackedScene" uid="uid://d3ukfpwmbceww" path="res://Enemy/enemy_2.tscn" id="7_5hce7"]
-[ext_resource type="Script" path="res://UI/HUD.gd" id="8_ossih"]
-[ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="9_0n555"]
-[ext_resource type="Script" path="res://UI/Menu.gd" id="10_4umnr"]
-[ext_resource type="AudioStream" uid="uid://c5353g6wbrn3g" path="res://Assets/Battle Lava - TV Fire Witch.mp3" id="13_g32el"]
-[ext_resource type="Script" path="res://Life_Container.gd" id="15_82afc"]
+[ext_resource type="Texture2D" uid="uid://bceeto1gv8b7b" path="res://Assets/bg.png" id="1_cvull"]
+[ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="2_38v04"]
+[ext_resource type="Script" path="res://Asteroid/asteroidl2.gd" id="3_7amw7"]
+[ext_resource type="PackedScene" uid="uid://c8mikvvc5k26n" path="res://Asteroid/s_asteroid.tscn" id="3_s8np8"]
+[ext_resource type="Script" path="res://Player/Player_Container.gd" id="4_artp7"]
+[ext_resource type="PackedScene" uid="uid://cjgerofqdbc2r" path="res://Player/player.tscn" id="5_6ihb5"]
+[ext_resource type="PackedScene" uid="uid://choehqrrwlpm" path="res://Enemy/enemy.tscn" id="6_pbcd2"]
+[ext_resource type="PackedScene" uid="uid://d3ukfpwmbceww" path="res://Enemy/enemy_2.tscn" id="8_hjmw3"]
+[ext_resource type="PackedScene" uid="uid://do8gwlai3c0q7" path="res://Enemy/enemy_4.tscn" id="9_t7s26"]
+[ext_resource type="Script" path="res://UI/HUD.gd" id="10_qdy2w"]
+[ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="11_ms70b"]
+[ext_resource type="Script" path="res://UI/Menu.gd" id="12_xwh85"]
+[ext_resource type="AudioStream" uid="uid://dtgbao54t3qgs" path="res://Assets/Battle Lava - So Far The Monster Magic Is Super.mp3" id="13_qxuc5"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_g2fa7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_soxvn")
+texture = ExtResource("1_cvull")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_right = 1152.0
@@ -30,34 +28,32 @@ color = Color(0.0980392, 0.0980392, 0.152941, 0.584314)
 
 [node name="Asteroid_Container" type="Node2D" parent="."]
 
-[node name="Asteroid" parent="Asteroid_Container" instance=ExtResource("1_6hnef")]
-visible = false
+[node name="Asteroid" parent="Asteroid_Container" instance=ExtResource("2_38v04")]
 position = Vector2(223, 507)
-script = ExtResource("2_v6fyd")
+script = ExtResource("3_7amw7")
 
-[node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource("1_6hnef")]
-position = Vector2(1072, 208)
-script = ExtResource("2_v6fyd")
-
-[node name="Asteroid3" parent="Asteroid_Container" instance=ExtResource("1_6hnef")]
+[node name="Asteroid3" parent="Asteroid_Container" instance=ExtResource("2_38v04")]
 position = Vector2(805, 381)
-script = ExtResource("2_v6fyd")
+script = ExtResource("3_7amw7")
 
-[node name="SAsteroid2" parent="Asteroid_Container" instance=ExtResource("3_qg7rh")]
-position = Vector2(769, 81)
+[node name="SAsteroid" parent="Asteroid_Container" instance=ExtResource("3_s8np8")]
+position = Vector2(242, 221)
 
 [node name="Effects" type="Node2D" parent="."]
 
 [node name="Player_Container" type="Node2D" parent="."]
-script = ExtResource("4_y3uni")
+script = ExtResource("4_artp7")
 
-[node name="Player" parent="Player_Container" instance=ExtResource("5_wsfvl")]
+[node name="Player" parent="Player_Container" instance=ExtResource("5_6ihb5")]
+position = Vector2(566, 324)
 
 [node name="Enemy_Container" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemy_Container" instance=ExtResource("6_68705")]
+[node name="Enemy" parent="Enemy_Container" instance=ExtResource("6_pbcd2")]
 
-[node name="Enemy2" parent="Enemy_Container" instance=ExtResource("7_5hce7")]
+[node name="Enemy2" parent="Enemy_Container" instance=ExtResource("8_hjmw3")]
+
+[node name="Enemy4" parent="Enemy_Container" instance=ExtResource("9_t7s26")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -68,14 +64,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("8_ossih")
+script = ExtResource("10_qdy2w")
 
 [node name="Score" type="Label" parent="UI/HUD"]
 layout_mode = 1
 offset_left = 10.0
 offset_right = 210.0
 offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("9_0n555")
+theme_override_fonts/font = ExtResource("11_ms70b")
 theme_override_font_sizes/font_size = 20
 text = "Score"
 vertical_alignment = 1
@@ -89,9 +85,9 @@ offset_left = -210.0
 offset_right = -10.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource("9_0n555")
+theme_override_fonts/font = ExtResource("11_ms70b")
 theme_override_font_sizes/font_size = 20
-text = "Time Left: infinite"
+text = "Time:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -104,6 +100,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Timer" type="Timer" parent="UI/HUD"]
+autostart = true
 
 [node name="Menu" type="Control" parent="UI"]
 process_mode = 3
@@ -114,7 +111,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("10_4umnr")
+script = ExtResource("12_xwh85")
 
 [node name="ColorRect" type="ColorRect" parent="UI/Menu"]
 layout_mode = 1
@@ -133,7 +130,7 @@ anchor_bottom = 1.0
 offset_bottom = -248.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_0n555")
+theme_override_fonts/font = ExtResource("11_ms70b")
 theme_override_font_sizes/font_size = 50
 text = "Pause Menu
 "
@@ -153,7 +150,7 @@ offset_right = 100.0
 offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_0n555")
+theme_override_fonts/font = ExtResource("11_ms70b")
 theme_override_font_sizes/font_size = 25
 text = "Main Menu"
 
@@ -169,7 +166,7 @@ offset_right = 100.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_0n555")
+theme_override_fonts/font = ExtResource("11_ms70b")
 theme_override_font_sizes/font_size = 25
 text = "Restart Game"
 
@@ -186,43 +183,15 @@ offset_right = 100.0
 offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_0n555")
+theme_override_fonts/font = ExtResource("11_ms70b")
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 
-[node name="ATimer" type="Timer" parent="."]
-wait_time = 7.0
-autostart = true
-
-[node name="ATimerhard" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-
-[node name="Etimer" type="Timer" parent="."]
-wait_time = 7.0
-autostart = true
-
-[node name="Etimerhard" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_g32el")
+stream = ExtResource("13_qxuc5")
 autoplay = true
-
-[node name="Life_Container" type="Node2D" parent="."]
-script = ExtResource("15_82afc")
-
-[node name="Timer" type="Timer" parent="Life_Container"]
-wait_time = 7.0
-autostart = true
 
 [connection signal="timeout" from="UI/HUD/Timer" to="UI/HUD" method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/Menu/mmenu" to="UI/Menu" method="_on_mmenu_pressed"]
 [connection signal="pressed" from="UI/Menu/Restart" to="UI/Menu" method="_on_restart_pressed"]
 [connection signal="pressed" from="UI/Menu/Quit" to="UI/Menu" method="_on_quit_pressed"]
-[connection signal="timeout" from="ATimer" to="." method="_on_a_timer_timeout"]
-[connection signal="timeout" from="ATimerhard" to="." method="_on_a_timerhard_timeout"]
-[connection signal="timeout" from="Etimer" to="." method="_on_etimer_timeout"]
-[connection signal="timeout" from="Etimerhard" to="." method="_on_etimerhard_timeout"]
-[connection signal="timeout" from="Life_Container/Timer" to="Life_Container" method="_on_timer_timeout"]

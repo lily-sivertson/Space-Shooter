@@ -1,59 +1,59 @@
-[gd_scene load_steps=14 format=3 uid="uid://ba052ssopt3g0"]
+[gd_scene load_steps=11 format=3 uid="uid://byc2q4bm0y0gw"]
 
-[ext_resource type="Texture2D" uid="uid://bceeto1gv8b7b" path="res://Assets/bg.png" id="1_ho3l4"]
-[ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="1_rhfeb"]
-[ext_resource type="Script" path="res://Player/Player_Container.gd" id="2_fce0f"]
-[ext_resource type="PackedScene" uid="uid://cjgerofqdbc2r" path="res://Player/player.tscn" id="3_ar0rp"]
-[ext_resource type="PackedScene" uid="uid://c8mikvvc5k26n" path="res://Asteroid/s_asteroid.tscn" id="3_hy2sb"]
-[ext_resource type="PackedScene" uid="uid://choehqrrwlpm" path="res://Enemy/enemy.tscn" id="4_17yi3"]
-[ext_resource type="Script" path="res://UI/HUD.gd" id="5_48vfq"]
-[ext_resource type="PackedScene" uid="uid://bwevvw6bg7ggi" path="res://Enemy/enemy_3.tscn" id="6_c7n8u"]
-[ext_resource type="Script" path="res://Player/player.gd" id="6_og06r"]
-[ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="6_st5ip"]
-[ext_resource type="PackedScene" uid="uid://d3ukfpwmbceww" path="res://Enemy/enemy_2.tscn" id="7_p07jr"]
-[ext_resource type="Script" path="res://UI/Menu.gd" id="7_wdqnj"]
-[ext_resource type="AudioStream" uid="uid://dtgbao54t3qgs" path="res://Assets/Battle Lava - So Far The Monster Magic Is Super.mp3" id="11_t43xl"]
+[ext_resource type="Texture2D" uid="uid://bceeto1gv8b7b" path="res://Assets/bg.png" id="1_t2b3h"]
+[ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="2_37lw6"]
+[ext_resource type="Script" path="res://Asteroid/asteroidl2.gd" id="3_j6fcx"]
+[ext_resource type="PackedScene" uid="uid://c8mikvvc5k26n" path="res://Asteroid/s_asteroid.tscn" id="3_sn1do"]
+[ext_resource type="Script" path="res://Player/Player_Container.gd" id="4_seimg"]
+[ext_resource type="PackedScene" uid="uid://cjgerofqdbc2r" path="res://Player/player.tscn" id="5_qxcd0"]
+[ext_resource type="Script" path="res://UI/HUD.gd" id="10_6w4la"]
+[ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="11_k3fqq"]
+[ext_resource type="Script" path="res://UI/Menu.gd" id="12_bw2ax"]
+[ext_resource type="AudioStream" uid="uid://dtgbao54t3qgs" path="res://Assets/Battle Lava - So Far The Monster Magic Is Super.mp3" id="13_q2sdf"]
 
 [node name="Game" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_ho3l4")
+texture = ExtResource("1_t2b3h")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.105882, 0.0901961, 0.164706, 0.584314)
+color = Color(0.0980392, 0.0980392, 0.152941, 0.584314)
 
 [node name="Asteroid_Container" type="Node2D" parent="."]
 
-[node name="Asteroid" parent="Asteroid_Container" instance=ExtResource("1_rhfeb")]
-position = Vector2(100, 100)
+[node name="Asteroid" parent="Asteroid_Container" instance=ExtResource("2_37lw6")]
+position = Vector2(171, 382)
+script = ExtResource("3_j6fcx")
 
-[node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource("1_rhfeb")]
-position = Vector2(900, 600)
+[node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource("2_37lw6")]
+position = Vector2(716, 561)
+script = ExtResource("3_j6fcx")
 
-[node name="SAsteroid" parent="Asteroid_Container" instance=ExtResource("3_hy2sb")]
-position = Vector2(816, 218)
+[node name="Asteroid3" parent="Asteroid_Container" instance=ExtResource("2_37lw6")]
+position = Vector2(652, 171)
+script = ExtResource("3_j6fcx")
+
+[node name="SAsteroid" parent="Asteroid_Container" instance=ExtResource("3_sn1do")]
+position = Vector2(242, 221)
+
+[node name="Asteroid4" parent="Asteroid_Container" instance=ExtResource("2_37lw6")]
+position = Vector2(349, 69)
+
+[node name="SAsteroid2" parent="Asteroid_Container" instance=ExtResource("3_sn1do")]
 
 [node name="Effects" type="Node2D" parent="."]
 
 [node name="Player_Container" type="Node2D" parent="."]
-script = ExtResource("2_fce0f")
+script = ExtResource("4_seimg")
 
-[node name="Player" parent="Player_Container" instance=ExtResource("3_ar0rp")]
+[node name="Player" parent="Player_Container" instance=ExtResource("5_qxcd0")]
 position = Vector2(566, 324)
-script = ExtResource("6_og06r")
 
 [node name="Enemy_Container" type="Node2D" parent="."]
-
-[node name="Enemy" parent="Enemy_Container" instance=ExtResource("4_17yi3")]
-position = Vector2(400, 200)
-
-[node name="Enemy3" parent="Enemy_Container" instance=ExtResource("6_c7n8u")]
-
-[node name="Enemy2" parent="Enemy_Container" instance=ExtResource("7_p07jr")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -64,14 +64,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_48vfq")
+script = ExtResource("10_6w4la")
 
 [node name="Score" type="Label" parent="UI/HUD"]
 layout_mode = 1
 offset_left = 10.0
 offset_right = 210.0
 offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("6_st5ip")
+theme_override_fonts/font = ExtResource("11_k3fqq")
 theme_override_font_sizes/font_size = 20
 text = "Score"
 vertical_alignment = 1
@@ -85,7 +85,7 @@ offset_left = -210.0
 offset_right = -10.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource("6_st5ip")
+theme_override_fonts/font = ExtResource("11_k3fqq")
 theme_override_font_sizes/font_size = 20
 text = "Time:"
 horizontal_alignment = 2
@@ -111,7 +111,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("7_wdqnj")
+script = ExtResource("12_bw2ax")
 
 [node name="ColorRect" type="ColorRect" parent="UI/Menu"]
 layout_mode = 1
@@ -130,12 +130,29 @@ anchor_bottom = 1.0
 offset_bottom = -248.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_st5ip")
+theme_override_fonts/font = ExtResource("11_k3fqq")
 theme_override_font_sizes/font_size = 50
 text = "Pause Menu
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="mmenu" type="Button" parent="UI/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_k3fqq")
+theme_override_font_sizes/font_size = 25
+text = "Main Menu"
 
 [node name="Restart" type="Button" parent="UI/Menu"]
 layout_mode = 1
@@ -145,12 +162,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -20.0
 offset_right = 100.0
-offset_bottom = 20.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_st5ip")
+theme_override_fonts/font = ExtResource("11_k3fqq")
 theme_override_font_sizes/font_size = 25
 text = "Restart Game"
 
@@ -162,37 +178,20 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 41.0
+offset_top = 61.0
 offset_right = 100.0
-offset_bottom = 81.0
+offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_st5ip")
+theme_override_fonts/font = ExtResource("11_k3fqq")
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 
-[node name="mmenu" type="Button" parent="UI/Menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -81.0
-offset_right = 100.0
-offset_bottom = -41.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_st5ip")
-theme_override_font_sizes/font_size = 25
-text = "Main Menu"
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_t43xl")
+stream = ExtResource("13_q2sdf")
 autoplay = true
 
 [connection signal="timeout" from="UI/HUD/Timer" to="UI/HUD" method="_on_timer_timeout"]
+[connection signal="pressed" from="UI/Menu/mmenu" to="UI/Menu" method="_on_mmenu_pressed"]
 [connection signal="pressed" from="UI/Menu/Restart" to="UI/Menu" method="_on_restart_pressed"]
 [connection signal="pressed" from="UI/Menu/Quit" to="UI/Menu" method="_on_quit_pressed"]
-[connection signal="pressed" from="UI/Menu/mmenu" to="UI/Menu" method="_on_mmenu_pressed"]

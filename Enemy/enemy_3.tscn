@@ -23,4 +23,3 @@ scale = Vector2(0.8, 0.8)
 polygon = PackedVector2Array(-2, -40.7, -2, -38.9, 2.7, -35, 3.4, -35, 15.4, -43, 29.4, -43, 38, -39.3, 38, -37.7, 48, -25.7, 48, -22, 50.2, 0, 48.6, 0, 44.6, 18, 43.1, 18, 28.1, 41, -27, 41, -27, 38.6, -42, 15.6, -42, 12.3, -46, 0.300003, -46, -16, -44.4, -16, -38.4, -34, -36.9, -34, -30.9, -41, -28.3, -41, -24, -42.4, -24, -44.4)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="countdown" to="." method="_on_countdown_timeout"]
