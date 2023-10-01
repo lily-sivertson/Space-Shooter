@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var y_positions= [100,150,200,250,300,350,400,450,500,550]
-var x_positions= [100,150,200,250,300,350,400,450,500,550,600,650,700,750,800850,900,950,1000]
+var x_positions= [100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000]
 var initial_position= Vector2.ZERO
 
 var timeleft=15

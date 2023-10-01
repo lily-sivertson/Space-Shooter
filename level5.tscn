@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://byc2q4bm0y0gw"]
+[gd_scene load_steps=12 format=3 uid="uid://byc2q4bm0y0gw"]
 
 [ext_resource type="Texture2D" uid="uid://bceeto1gv8b7b" path="res://Assets/bg.png" id="1_t2b3h"]
 [ext_resource type="PackedScene" uid="uid://rxn8leqlwtys" path="res://Asteroid/asteroid.tscn" id="2_37lw6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c8mikvvc5k26n" path="res://Asteroid/s_asteroid.tscn" id="3_sn1do"]
 [ext_resource type="Script" path="res://Player/Player_Container.gd" id="4_seimg"]
 [ext_resource type="PackedScene" uid="uid://cjgerofqdbc2r" path="res://Player/player.tscn" id="5_qxcd0"]
+[ext_resource type="PackedScene" uid="uid://do8gwlai3c0q7" path="res://Enemy/enemy_4.tscn" id="9_bv8o1"]
 [ext_resource type="Script" path="res://UI/HUD.gd" id="10_6w4la"]
 [ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="11_k3fqq"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="12_bw2ax"]
@@ -44,6 +45,10 @@ position = Vector2(242, 221)
 position = Vector2(349, 69)
 
 [node name="SAsteroid2" parent="Asteroid_Container" instance=ExtResource("3_sn1do")]
+position = Vector2(927, 358)
+
+[node name="SAsteroid3" parent="Asteroid_Container" instance=ExtResource("3_sn1do")]
+position = Vector2(914, 141)
 
 [node name="Effects" type="Node2D" parent="."]
 
@@ -54,6 +59,9 @@ script = ExtResource("4_seimg")
 position = Vector2(566, 324)
 
 [node name="Enemy_Container" type="Node2D" parent="."]
+
+[node name="Enemy4" parent="Enemy_Container" instance=ExtResource("9_bv8o1")]
+position = Vector2(398, 472)
 
 [node name="UI" type="CanvasLayer" parent="."]
 

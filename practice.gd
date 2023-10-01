@@ -3,6 +3,14 @@ var maxast=8
 var maxasth=15
 var maxen=4
 var maxenh=6
+var En1=load("res://Enemy/enemy.tscn")
+var En2=load("res://Enemy/enemy_2.tscn")
+var En3=load("res://Enemy/enemy_3.tscn")
+var En4=load("res://Enemy/enemy_4.tscn")
+var enemies=[En1,En2,En3,En4]
+var Sast=load("res://Asteroid/s_asteroid.tscn")
+var Ast=load("res://Asteroid/asteroid.tscn")
+var asts= [Sast, Ast]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,9 +26,6 @@ func _process(delta):
 
 func _on_a_timer_timeout():
 	if Global.hardmode==false:
-		var Sast=load("res://Asteroid/s_asteroid.tscn")
-		var Ast=load("res://Asteroid/asteroid.tscn")
-		var asts= [Sast, Ast]
 		var Ast_cont= get_node_or_null("/root/Game/Asteroid_Container")
 		if Ast_cont!=null:
 			if Ast_cont.get_child_count()<maxast:
@@ -32,10 +37,6 @@ func _on_a_timer_timeout():
 
 func _on_etimer_timeout():
 	if Global.hardmode==false:
-		var En1=load("res://Enemy/enemy.tscn")
-		var En2=load("res://Enemy/enemy_2.tscn")
-		var En3=load("res://Enemy/enemy_3.tscn")
-		var enemies=[En1,En2,En3]
 		var En_cont= get_node_or_null("/root/Game/Enemy_Container")
 		if En_cont!=null:
 			if En_cont.get_child_count()<maxen:
@@ -48,9 +49,6 @@ func _on_etimer_timeout():
 
 func _on_a_timerhard_timeout():
 	if Global.hardmode==true:
-		var Sast=load("res://Asteroid/s_asteroid.tscn")
-		var Ast=load("res://Asteroid/asteroid.tscn")
-		var asts= [Sast, Ast]
 		var Ast_cont= get_node_or_null("/root/Game/Asteroid_Container")
 		if Ast_cont!=null:
 			if Ast_cont.get_child_count()<maxasth:
@@ -63,10 +61,6 @@ func _on_a_timerhard_timeout():
 
 func _on_etimerhard_timeout():
 	if Global.hardmode==true:
-		var En1=load("res://Enemy/enemy.tscn")
-		var En2=load("res://Enemy/enemy_2.tscn")
-		var En3=load("res://Enemy/enemy_3.tscn")
-		var enemies=[En1,En2,En3]
 		var En_cont= get_node_or_null("/root/Game/Enemy_Container")
 		if En_cont!=null:
 			if En_cont.get_child_count()<maxenh:

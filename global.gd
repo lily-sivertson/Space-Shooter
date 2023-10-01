@@ -7,6 +7,9 @@ var time=0
 var hardmode= false
 var gamefile="res://game.tscn"
 var highscore=0
+var hschart=["0","0","0","0","0","0","0","0"]
+var lnum=0
+var etime=0
 
 
 
@@ -58,15 +61,19 @@ func update_score(s):
 		hud.update_score()
 
 func update_hs():
+	if score> int(hschart[lnum]):
+		hschart[lnum]=str(score)
 	if score>highscore:
 		highscore=score
 		var mmenu= get_node_or_null("/root/Game/UI/main_menu")
 		if mmenu!=null:
 			mmenu.update_hs()
 
-
 func update_time(t):
 	time+=t
+	
+func update_etime(t):
+	etime+=t
 	
 func _resize():
 	VP=get_viewport().size
@@ -77,11 +84,12 @@ func _resize():
 func update_gamemode(m):
 	hardmode=m
 	
-func update_gamefile(f):
+func update_gamefile(f,l):
 	gamefile=f
+	lnum=l
 
 func reset():
-	
+	etime=0
 	get_tree().paused=false
 	
 	if hardmode==true:

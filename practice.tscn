@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://Player/eplayer.gd" id="8_jnsby"]
 [ext_resource type="PackedScene" uid="uid://choehqrrwlpm" path="res://Enemy/enemy.tscn" id="8_owo35"]
 [ext_resource type="PackedScene" uid="uid://d3ukfpwmbceww" path="res://Enemy/enemy_2.tscn" id="9_wkv65"]
-[ext_resource type="Script" path="res://UI/HUD.gd" id="10_uyl4j"]
 [ext_resource type="FontFile" uid="uid://cxlgmxicom4h2" path="res://Assets/Breads.ttf" id="11_bq4g3"]
+[ext_resource type="Script" path="res://UI/eHUD.gd" id="11_sdang"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="12_283ml"]
 [ext_resource type="AudioStream" uid="uid://c5353g6wbrn3g" path="res://Assets/Battle Lava - TV Fire Witch.mp3" id="13_7ily6"]
 [ext_resource type="Script" path="res://Life_Container.gd" id="14_1ai3w"]
@@ -70,7 +70,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("10_uyl4j")
+script = ExtResource("11_sdang")
 
 [node name="Score" type="Label" parent="UI/HUD"]
 layout_mode = 1
